@@ -1,0 +1,14 @@
+gunicorn
+Flask==1.1.4
+dash==2.0.0
+dash_bootstrap_components==0.13.1
+dash_daq
+requests
+PyJWT
+pandas
+geopandas
+pygsheets
+# jupyterlab
+# jupyter_contrib_nbextensions
+# jupyter_nbextensions_configurator
+# jupyterthemes
