@@ -97,7 +97,7 @@ radio_nd = html.Div(
 radio_nd = [
     radio_nd,
     dbc.Checklist(options=[{'label': 'Quota Map', 'value': 1}],  # value=[1],
-                  id='map', switch=True, className='mx-2'), #
+                  id='map', switch=True, className='mx-2'),
 ]
 
 zs = zip([radio_layout, radio_nd],  # afr,  mrr, dd
@@ -154,11 +154,13 @@ navbar = dbc.Navbar([
 
 
 def init_dashboard(app, prefix):
-    da = Dash(server=app, external_stylesheets=[dbc.themes.BOOTSTRAP],
-              assets_folder=f'{prefix}',  # 'assets', #
-              assets_url_path=f'/{prefix}',
-              routes_pathname_prefix=f'/{prefix}/',
-              meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}])
+    da = Dash(
+        # server=app,
+        external_stylesheets=[dbc.themes.BOOTSTRAP],
+        assets_folder=f'{prefix}',  # 'assets', #
+        assets_url_path=f'/{prefix}',
+        routes_pathname_prefix=f'/{prefix}/',
+        meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}])
 
     if prefix == 'dash_tqm':
         # from callbacks_a import init_callback_a
@@ -192,14 +194,5 @@ def init_dashboard(app, prefix):
 
         da.title = 'Accumulation'
 
-        da.clientside_callback(
-            """
-            function(n_clicks) {
-                if (n_clicks > 0)
-                    document.querySelector("#table1 button.export").click()
-                return ""
-            }
-            """, Output("table1", "data-dummy"), [Input("exportbtn", "n_clicks")]
-        )
-
-    return da.server
+    return da
+    # return da.server

@@ -6,7 +6,7 @@ After=network-online.target
 
 [Service]
 Type=simple
-ExecStart=/home/ubuntu/tqm/server/f5.sh
+ExecStart=/home/ubuntu/cs/server/f5.sh
 TimeoutSec=30
 Restart=on-failure
 RestartSec=5
@@ -19,5 +19,5 @@ WantedBy=multi-user.target' > f5.service
 sudo cp f5.service /etc/systemd/system/
 
 sudo chmod 664 /etc/systemd/system/f5.service
-sudo chmod 744 /home/ubuntu/tqm/server/f5.sh
+sudo chmod 744 /home/ubuntu/cs/server/f5.sh
 sudo systemctl enable f5
