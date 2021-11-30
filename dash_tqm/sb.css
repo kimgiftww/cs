@@ -39,14 +39,6 @@
 
 /* responsive */
 
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-  /* padding-bottom: 27px; */
-  font-family: Open Sans, sans-serif;
-  /* min-height: 100vh; */
-}
-
 /* #navbar {
   padding: 1rem 0.6rem;
 } */
@@ -102,7 +94,16 @@ html, body {
   background-color: #7eb444;
 } */
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  /* padding-bottom: 27px; */
+  font-family: Open Sans, sans-serif;
+  /* min-height: 100vh; */
+}
+
 #page-content {
+  max-width: 100%;
   padding: 0 0 0 0;
   /* background-color: #303030; */
   min-height: 100vh;

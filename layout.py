@@ -1,5 +1,4 @@
 from dash import Dash, html, dcc, Output, Input
-from callbacks import blank_fig
 import dash_bootstrap_components as dbc
 import pandas as pd
 import os
@@ -178,17 +177,22 @@ def init_dashboard(app, prefix):
                 navbar,
                 dbc.Collapse([cards, cards_sublimit, cards_dd],  # , cards_chart
                              is_open=True, id='cc'),
-                html.Div(dbc.Row([
-                    dbc.Col(id='sim'),  # , width=12
-                    dbc.Col(
-                        dbc.Collapse(
-                            dcc.Graph(figure=blank_fig(), id='heatmap_nd', responsive=True,
-                                      config=dict(displaylogo=False, autosizable=True)),
-                            id='slm_col', is_open=False),
-                        id='slm', width='auto')
-                ], no_gutters=True),
-                    id='main_map'),
-                html.Div(id='main'),  # , style={'height': 'auto'}
+                # html.Div(dbc.Row([
+                #     dbc.Col(id='sim'),  # , width=12
+                #     dbc.Col(
+                #         dbc.Collapse(
+                #             dcc.Graph(figure=blank_fig(), id='heatmap_nd', responsive=True,
+                #                       config=dict(displaylogo=False, autosizable=True)),
+                #             id='slm_col', is_open=False),
+                #         id='slm', width='auto')
+                # ], no_gutters=True),
+                #     id='main_map'),
+                html.Div(id='main',
+                         style={
+                             'max-width': '100%',
+                             'overflow-x': 'scroll !important'
+                         }
+                         )
             ], id="page-content")  # , style={'height': '100vh'}
         ])
 
